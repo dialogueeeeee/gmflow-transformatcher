@@ -1,0 +1,31 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+
+        {
+            "name": "train:debug",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceRoot}/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": ["--checkpoint_dir", "checkpoints/chairs-gmflow",
+              "--batch_size", "4", "--val_dataset", "chairs", "sintel", "kitti",
+              "--lr", "4e-4", "--image_size", "384", "512", "--padding_factor", "16",
+              "--upsample_factor", "16", "--with_speed_metric", "--val_freq", "10000",
+              "--save_ckpt_freq", "10000", "--num_steps", "100000"
+            ]
+        },
+    ]
+}

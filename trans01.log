@@ -1,0 +1,1016 @@
+nohup: ignoring input
+/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/launch.py:163: DeprecationWarning: The 'warn' method is deprecated, use 'warning' instead
+  logger.warn(
+The module torch.distributed.launch is deprecated and going to be removed in future.Migrate to torch.distributed.run
+WARNING:torch.distributed.run:--use_env is deprecated and will be removed in future releases.
+ Please read local_rank from `os.environ('LOCAL_RANK')` instead.
+INFO:torch.distributed.launcher.api:Starting elastic_operator with launch configs:
+  entrypoint       : main.py
+  min_nodes        : 1
+  max_nodes        : 1
+  nproc_per_node   : 4
+  run_id           : none
+  rdzv_backend     : static
+  rdzv_endpoint    : 127.0.0.1:29500
+  rdzv_configs     : {'rank': 0, 'timeout': 900}
+  max_restarts     : 3
+  monitor_interval : 5
+  log_dir          : None
+  metrics_cfg      : {}
+
+INFO:torch.distributed.elastic.agent.server.local_elastic_agent:log directory set to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3
+INFO:torch.distributed.elastic.agent.server.api:[default] starting workers for entrypoint: python
+INFO:torch.distributed.elastic.agent.server.api:[default] Rendezvous'ing worker group
+/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/elastic/utils/store.py:52: FutureWarning: This is an experimental API and will be changed in future.
+  warnings.warn(
+INFO:torch.distributed.elastic.agent.server.api:[default] Rendezvous complete for workers. Result:
+  restart_count=0
+  master_addr=127.0.0.1
+  master_port=29500
+  group_rank=0
+  group_world_size=1
+  local_ranks=[0, 1, 2, 3]
+  role_ranks=[0, 1, 2, 3]
+  global_ranks=[0, 1, 2, 3]
+  role_world_sizes=[4, 4, 4, 4]
+  global_world_sizes=[4, 4, 4, 4]
+
+INFO:torch.distributed.elastic.agent.server.api:[default] Starting worker group
+INFO:torch.distributed.elastic.multiprocessing:Setting worker0 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_0/0/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker1 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_0/1/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker2 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_0/2/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker3 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_0/3/error.json
+pytorch version: 1.9.0
+Namespace(attention_type='swin', attn_splits_list=[2], batch_size=16, checkpoint_dir='checkpoints/chairs-gmflow', corr_radius_list=[-1], count_time=False, dir_paired_data=False, distributed=False, eval=False, evaluate_matched_unmatched=False, feature_channels=128, ffn_dim_expansion=4, fwd_bwd_consistency_check=False, gamma=0.9, gpu_ids=0, grad_clip=1.0, image_size=[384, 512], inference_dir=None, inference_size=None, launcher='pytorch', local_rank=0, lr=0.0004, max_flow=400, no_resume_optimizer=False, no_save_flo=False, num_head=1, num_scales=1, num_steps=100000, num_transformer_layers=6, num_workers=4, output_path='output', padding_factor=16, pred_bidir_flow=False, prop_radius_list=[-1], resume=None, save_ckpt_freq=10000, save_eval_to_file=False, save_flo_flow=False, save_latest_ckpt_freq=1000, save_vis_flow=False, seed=326, stage='chairs', strict_resume=False, submission=False, summary_freq=100, upsample_factor=8, val_dataset=['chairs', 'sintel', 'kitti'], val_freq=10000, weight_decay=0.0001, with_speed_metric=True)
+/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448234945/work/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448234945/work/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448234945/work/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448234945/work/c10/core/TensorImpl.h:1156.)
+  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+Model definition:
+GMFlow(
+  (backbone): CNNEncoder(
+    (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (norm1): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+    (relu1): ReLU(inplace=True)
+    (layer1): Sequential(
+      (0): ResidualBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (relu): ReLU(inplace=True)
+        (norm1): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        (norm2): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      )
+      (1): ResidualBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (relu): ReLU(inplace=True)
+        (norm1): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        (norm2): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      )
+    )
+    (layer2): Sequential(
+      (0): ResidualBlock(
+        (conv1): Conv2d(64, 96, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (conv2): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (relu): ReLU(inplace=True)
+        (norm1): InstanceNorm2d(96, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        (norm2): InstanceNorm2d(96, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        (norm3): InstanceNorm2d(96, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        (downsample): Sequential(
+          (0): Conv2d(64, 96, kernel_size=(1, 1), stride=(2, 2))
+          (1): InstanceNorm2d(96, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+      )
+      (1): ResidualBlock(
+        (conv1): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (conv2): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (relu): ReLU(inplace=True)
+        (norm1): InstanceNorm2d(96, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        (norm2): InstanceNorm2d(96, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      )
+    )
+    (layer3): Sequential(
+      (0): ResidualBlock(
+        (conv1): Conv2d(96, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (relu): ReLU(inplace=True)
+        (norm1): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        (norm2): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        (norm3): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        (downsample): Sequential(
+          (0): Conv2d(96, 128, kernel_size=(1, 1), stride=(2, 2))
+          (1): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+      )
+      (1): ResidualBlock(
+        (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (relu): ReLU(inplace=True)
+        (norm1): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        (norm2): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      )
+    )
+    (conv2): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+  )
+  (feature_flow_attn): FeatureFlowAttention(
+    (q_proj): Linear(in_features=128, out_features=128, bias=True)
+    (k_proj): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (matcher): TransforMatcher(
+    (backbone): Backbone(
+      (conv1): Conv2d(6, 128, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), groups=2, bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      (layer1): Sequential(
+        (0): Bottleneck(
+          (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (downsample): Sequential(
+            (0): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+            (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): Bottleneck(
+          (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (2): Bottleneck(
+          (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (layer2): Sequential(
+        (0): Bottleneck(
+          (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (downsample): Sequential(
+            (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), groups=2, bias=False)
+            (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): Bottleneck(
+          (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (2): Bottleneck(
+          (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (3): Bottleneck(
+          (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (layer3): Sequential(
+        (0): Bottleneck(
+          (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (downsample): Sequential(
+            (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(2, 2), groups=2, bias=False)
+            (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (2): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (3): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (4): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (5): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (6): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (7): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (8): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (9): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (10): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (11): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (12): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (13): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (14): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (15): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (16): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (17): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (18): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (19): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (20): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (21): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (22): Bottleneck(
+          (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (layer4): Sequential(
+        (0): Bottleneck(
+          (conv1): Conv2d(2048, 1024, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(1024, 4096, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(4096, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (downsample): Sequential(
+            (0): Conv2d(2048, 4096, kernel_size=(1, 1), stride=(2, 2), groups=2, bias=False)
+            (1): BatchNorm2d(4096, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): Bottleneck(
+          (conv1): Conv2d(4096, 1024, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(1024, 4096, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(4096, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (2): Bottleneck(
+          (conv1): Conv2d(4096, 1024, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=2, bias=False)
+          (bn2): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(1024, 4096, kernel_size=(1, 1), stride=(1, 1), groups=2, bias=False)
+          (bn3): BatchNorm2d(4096, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+      (fc): Linear(in_features=2048, out_features=1000, bias=True)
+    )
+    (match2match): Match2Match(
+      (to_embedding): Sequential(
+        (0): Rearrange('b c h1 w1 h2 w2 -> b (h1 w1 h2 w2) c')
+        (1): Linear(in_features=26, out_features=16, bias=True)
+      )
+      (to_original): Sequential(
+        (0): Linear(in_features=16, out_features=1, bias=True)
+        (1): Rearrange('b (h1 w1 h2 w2) c -> b c h1 w1 h2 w2', h1=12, w1=16, h2=12, w2=16)
+      )
+      (trans_nc): ModuleList(
+        (0): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+            (fn): FastAttention(
+              (to_qkv): Linear(in_features=16, out_features=48, bias=False)
+              (pos_emb): RotaryEmbedding()
+              (to_q_attn_logits): Linear(in_features=4, out_features=1, bias=False)
+              (to_k_attn_logits): Linear(in_features=2, out_features=1, bias=False)
+              (to_r): Linear(in_features=2, out_features=4, bias=True)
+              (to_out): Linear(in_features=16, out_features=16, bias=True)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+            (fn): Sequential(
+              (0): Linear(in_features=16, out_features=64, bias=True)
+              (1): GELU()
+              (2): Linear(in_features=64, out_features=16, bias=True)
+            )
+          )
+        )
+        (1): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+            (fn): FastAttention(
+              (to_qkv): Linear(in_features=16, out_features=48, bias=False)
+              (pos_emb): RotaryEmbedding()
+              (to_q_attn_logits): Linear(in_features=4, out_features=1, bias=False)
+              (to_k_attn_logits): Linear(in_features=2, out_features=1, bias=False)
+              (to_r): Linear(in_features=2, out_features=4, bias=True)
+              (to_out): Linear(in_features=16, out_features=16, bias=True)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+            (fn): Sequential(
+              (0): Linear(in_features=16, out_features=64, bias=True)
+              (1): GELU()
+              (2): Linear(in_features=64, out_features=16, bias=True)
+            )
+          )
+        )
+        (2): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+            (fn): FastAttention(
+              (to_qkv): Linear(in_features=16, out_features=48, bias=False)
+              (pos_emb): RotaryEmbedding()
+              (to_q_attn_logits): Linear(in_features=4, out_features=1, bias=False)
+              (to_k_attn_logits): Linear(in_features=2, out_features=1, bias=False)
+              (to_r): Linear(in_features=2, out_features=4, bias=True)
+              (to_out): Linear(in_features=16, out_features=16, bias=True)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+            (fn): Sequential(
+              (0): Linear(in_features=16, out_features=64, bias=True)
+              (1): GELU()
+              (2): Linear(in_features=64, out_features=16, bias=True)
+            )
+          )
+        )
+        (3): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+            (fn): FastAttention(
+              (to_qkv): Linear(in_features=16, out_features=48, bias=False)
+              (pos_emb): RotaryEmbedding()
+              (to_q_attn_logits): Linear(in_features=4, out_features=1, bias=False)
+              (to_k_attn_logits): Linear(in_features=2, out_features=1, bias=False)
+              (to_r): Linear(in_features=2, out_features=4, bias=True)
+              (to_out): Linear(in_features=16, out_features=16, bias=True)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+            (fn): Sequential(
+              (0): Linear(in_features=16, out_features=64, bias=True)
+              (1): GELU()
+              (2): Linear(in_features=64, out_features=16, bias=True)
+            )
+          )
+        )
+        (4): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+            (fn): FastAttention(
+              (to_qkv): Linear(in_features=16, out_features=48, bias=False)
+              (pos_emb): RotaryEmbedding()
+              (to_q_attn_logits): Linear(in_features=4, out_features=1, bias=False)
+              (to_k_attn_logits): Linear(in_features=2, out_features=1, bias=False)
+              (to_r): Linear(in_features=2, out_features=4, bias=True)
+              (to_out): Linear(in_features=16, out_features=16, bias=True)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+            (fn): Sequential(
+              (0): Linear(in_features=16, out_features=64, bias=True)
+              (1): GELU()
+              (2): Linear(in_features=64, out_features=16, bias=True)
+            )
+          )
+        )
+        (5): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+            (fn): FastAttention(
+              (to_qkv): Linear(in_features=16, out_features=48, bias=False)
+              (pos_emb): RotaryEmbedding()
+              (to_q_attn_logits): Linear(in_features=4, out_features=1, bias=False)
+              (to_k_attn_logits): Linear(in_features=2, out_features=1, bias=False)
+              (to_r): Linear(in_features=2, out_features=4, bias=True)
+              (to_out): Linear(in_features=16, out_features=16, bias=True)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+            (fn): Sequential(
+              (0): Linear(in_features=16, out_features=64, bias=True)
+              (1): GELU()
+              (2): Linear(in_features=64, out_features=16, bias=True)
+            )
+          )
+        )
+      )
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (upsampler): Sequential(
+    (0): Conv2d(130, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): ReLU(inplace=True)
+    (2): Conv2d(256, 576, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+Number of params: 89189047
+Number of training images: 22232
+Start training
+Traceback (most recent call last):
+  File "main.py", line 559, in <module>
+    main(args)
+  File "main.py", line 383, in main
+    results_dict = model(img1, img2,
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 799, in forward
+Traceback (most recent call last):
+  File "main.py", line 559, in <module>
+    main(args)
+  File "main.py", line 383, in main
+    results_dict = model(img1, img2,
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 799, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/gmflow.py", line 112, in forward
+    corr_matrix, feature0_list, feature1_list = self.matcher(img0, img1)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)    
+return forward_call(*input, **kwargs)  File "/storage/daiyalun/gmflow-transformatcher/gmflow/transformatcher.py", line 214, in forward
+
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/gmflow.py", line 112, in forward
+    corr_matrix, feature0_list, feature1_list = self.matcher(img0, img1)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/transformatcher.py", line 214, in forward
+    correlation_ts = self.match2match(src_feats, trg_feats)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    correlation_ts = self.match2match(src_feats, trg_feats)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/transformatcher.py", line 138, in forward
+    correlations = Geometry.cosine_similarity(src_feats, trg_feats)
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/geometry_match.py", line 227, in cosine_similarity
+    return forward_call(*input, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/transformatcher.py", line 138, in forward
+    src_feat = utils.l2normalize(src_feat, dim=1)
+AttributeError: module 'utils' has no attribute 'l2normalize'
+    correlations = Geometry.cosine_similarity(src_feats, trg_feats)
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/geometry_match.py", line 227, in cosine_similarity
+    src_feat = utils.l2normalize(src_feat, dim=1)
+AttributeError: module 'utils' has no attribute 'l2normalize'
+Traceback (most recent call last):
+  File "main.py", line 559, in <module>
+    main(args)
+  File "main.py", line 383, in main
+    results_dict = model(img1, img2,
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 799, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/gmflow.py", line 112, in forward
+    corr_matrix, feature0_list, feature1_list = self.matcher(img0, img1)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/transformatcher.py", line 214, in forward
+    correlation_ts = self.match2match(src_feats, trg_feats)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+Traceback (most recent call last):
+  File "main.py", line 559, in <module>
+    return forward_call(*input, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/transformatcher.py", line 138, in forward
+    correlations = Geometry.cosine_similarity(src_feats, trg_feats)
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/geometry_match.py", line 227, in cosine_similarity
+    main(args)
+  File "main.py", line 383, in main
+    src_feat = utils.l2normalize(src_feat, dim=1)
+AttributeError: module 'utils' has no attribute 'l2normalize'
+    results_dict = model(img1, img2,
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 799, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/gmflow.py", line 112, in forward
+    corr_matrix, feature0_list, feature1_list = self.matcher(img0, img1)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/transformatcher.py", line 214, in forward
+    correlation_ts = self.match2match(src_feats, trg_feats)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/transformatcher.py", line 138, in forward
+    correlations = Geometry.cosine_similarity(src_feats, trg_feats)
+  File "/storage/daiyalun/gmflow-transformatcher/gmflow/geometry_match.py", line 227, in cosine_similarity
+    src_feat = utils.l2normalize(src_feat, dim=1)
+AttributeError: module 'utils' has no attribute 'l2normalize'
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 11501) of binary: /storage/daiyalun/anaconda3/envs/gmflow/bin/python
+ERROR:torch.distributed.elastic.agent.server.local_elastic_agent:[default] Worker group failed
+INFO:torch.distributed.elastic.agent.server.api:[default] Worker group FAILED. 3/3 attempts left; will restart worker group
+INFO:torch.distributed.elastic.agent.server.api:[default] Stopping worker group
+INFO:torch.distributed.elastic.agent.server.api:[default] Rendezvous'ing worker group
+INFO:torch.distributed.elastic.agent.server.api:[default] Rendezvous complete for workers. Result:
+  restart_count=1
+  master_addr=127.0.0.1
+  master_port=29500
+  group_rank=0
+  group_world_size=1
+  local_ranks=[0, 1, 2, 3]
+  role_ranks=[0, 1, 2, 3]
+  global_ranks=[0, 1, 2, 3]
+  role_world_sizes=[4, 4, 4, 4]
+  global_world_sizes=[4, 4, 4, 4]
+
+INFO:torch.distributed.elastic.agent.server.api:[default] Starting worker group
+INFO:torch.distributed.elastic.multiprocessing:Setting worker0 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_1/0/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker1 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_1/1/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker2 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_1/2/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker3 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_1/3/error.json
+pytorch version: 1.9.0
+Namespace(attention_type='swin', attn_splits_list=[2], batch_size=16, checkpoint_dir='checkpoints/chairs-gmflow', corr_radius_list=[-1], count_time=False, dir_paired_data=False, distributed=False, eval=False, evaluate_matched_unmatched=False, feature_channels=128, ffn_dim_expansion=4, fwd_bwd_consistency_check=False, gamma=0.9, gpu_ids=0, grad_clip=1.0, image_size=[384, 512], inference_dir=None, inference_size=None, launcher='pytorch', local_rank=0, lr=0.0004, max_flow=400, no_resume_optimizer=False, no_save_flo=False, num_head=1, num_scales=1, num_steps=100000, num_transformer_layers=6, num_workers=4, output_path='output', padding_factor=16, pred_bidir_flow=False, prop_radius_list=[-1], resume=None, save_ckpt_freq=10000, save_eval_to_file=False, save_flo_flow=False, save_latest_ckpt_freq=1000, save_vis_flow=False, seed=326, stage='chairs', strict_resume=False, submission=False, summary_freq=100, upsample_factor=8, val_dataset=['chairs', 'sintel', 'kitti'], val_freq=10000, weight_decay=0.0001, with_speed_metric=True)
+Traceback (most recent call last):
+  File "main.py", line 559, in <module>
+    main(args)
+  File "main.py", line 145, in main
+    init_dist(args.launcher, **dist_params)
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 16, in init_dist
+    _init_dist_pytorch(backend, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 30, in _init_dist_pytorch
+    dist.init_process_group(backend=backend, **kwargs)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 547, in init_process_group
+    _store_based_barrier(rank, store, timeout)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 219, in _store_based_barrier
+    raise RuntimeError(
+RuntimeError: Timed out initializing process group in store based barrier on rank: 2, for key: store_based_barrier_key:1 (world_size=4, worker_count=8, timeout=0:30:00)
+Traceback (most recent call last):
+  File "main.py", line 559, in <module>
+Traceback (most recent call last):
+  File "main.py", line 559, in <module>
+Traceback (most recent call last):
+    main(args)
+  File "main.py", line 559, in <module>
+  File "main.py", line 145, in main
+    init_dist(args.launcher, **dist_params)
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 16, in init_dist
+    _init_dist_pytorch(backend, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 30, in _init_dist_pytorch
+    dist.init_process_group(backend=backend, **kwargs)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 547, in init_process_group
+    _store_based_barrier(rank, store, timeout)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 219, in _store_based_barrier
+    raise RuntimeError(
+    RuntimeErrormain(args): Timed out initializing process group in store based barrier on rank: 3, for key: store_based_barrier_key:1 (world_size=4, worker_count=8, timeout=0:30:00)
+
+  File "main.py", line 145, in main
+    main(args)    init_dist(args.launcher, **dist_params)
+
+  File "main.py", line 145, in main
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 16, in init_dist
+    _init_dist_pytorch(backend, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 30, in _init_dist_pytorch
+    init_dist(args.launcher, **dist_params)
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 16, in init_dist
+    dist.init_process_group(backend=backend, **kwargs)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 547, in init_process_group
+    _init_dist_pytorch(backend, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 30, in _init_dist_pytorch
+    dist.init_process_group(backend=backend, **kwargs)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 547, in init_process_group
+    _store_based_barrier(rank, store, timeout)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 219, in _store_based_barrier
+    raise RuntimeError(
+    _store_based_barrier(rank, store, timeout)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 219, in _store_based_barrier
+RuntimeError: Timed out initializing process group in store based barrier on rank: 1, for key: store_based_barrier_key:1 (world_size=4, worker_count=8, timeout=0:30:00)
+    raise RuntimeError(
+RuntimeError: Timed out initializing process group in store based barrier on rank: 0, for key: store_based_barrier_key:1 (world_size=4, worker_count=8, timeout=0:30:00)
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 12796) of binary: /storage/daiyalun/anaconda3/envs/gmflow/bin/python
+ERROR:torch.distributed.elastic.agent.server.local_elastic_agent:[default] Worker group failed
+INFO:torch.distributed.elastic.agent.server.api:[default] Worker group FAILED. 2/3 attempts left; will restart worker group
+INFO:torch.distributed.elastic.agent.server.api:[default] Stopping worker group
+INFO:torch.distributed.elastic.agent.server.api:[default] Rendezvous'ing worker group
+INFO:torch.distributed.elastic.agent.server.api:[default] Rendezvous complete for workers. Result:
+  restart_count=2
+  master_addr=127.0.0.1
+  master_port=29500
+  group_rank=0
+  group_world_size=1
+  local_ranks=[0, 1, 2, 3]
+  role_ranks=[0, 1, 2, 3]
+  global_ranks=[0, 1, 2, 3]
+  role_world_sizes=[4, 4, 4, 4]
+  global_world_sizes=[4, 4, 4, 4]
+
+INFO:torch.distributed.elastic.agent.server.api:[default] Starting worker group
+INFO:torch.distributed.elastic.multiprocessing:Setting worker0 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_2/0/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker1 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_2/1/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker2 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_2/2/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker3 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_2/3/error.json
+pytorch version: 1.9.0
+Namespace(attention_type='swin', attn_splits_list=[2], batch_size=16, checkpoint_dir='checkpoints/chairs-gmflow', corr_radius_list=[-1], count_time=False, dir_paired_data=False, distributed=False, eval=False, evaluate_matched_unmatched=False, feature_channels=128, ffn_dim_expansion=4, fwd_bwd_consistency_check=False, gamma=0.9, gpu_ids=0, grad_clip=1.0, image_size=[384, 512], inference_dir=None, inference_size=None, launcher='pytorch', local_rank=0, lr=0.0004, max_flow=400, no_resume_optimizer=False, no_save_flo=False, num_head=1, num_scales=1, num_steps=100000, num_transformer_layers=6, num_workers=4, output_path='output', padding_factor=16, pred_bidir_flow=False, prop_radius_list=[-1], resume=None, save_ckpt_freq=10000, save_eval_to_file=False, save_flo_flow=False, save_latest_ckpt_freq=1000, save_vis_flow=False, seed=326, stage='chairs', strict_resume=False, submission=False, summary_freq=100, upsample_factor=8, val_dataset=['chairs', 'sintel', 'kitti'], val_freq=10000, weight_decay=0.0001, with_speed_metric=True)
+Traceback (most recent call last):
+  File "main.py", line 559, in <module>
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "main.py", line 559, in <module>
+  File "main.py", line 559, in <module>
+Traceback (most recent call last):
+  File "main.py", line 559, in <module>
+    main(args)
+  File "main.py", line 145, in main
+        main(args)main(args)
+
+      File "main.py", line 145, in main
+  File "main.py", line 145, in main
+main(args)
+  File "main.py", line 145, in main
+    init_dist(args.launcher, **dist_params)
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 16, in init_dist
+        init_dist(args.launcher, **dist_params)init_dist(args.launcher, **dist_params)
+
+      File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 16, in init_dist
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 16, in init_dist
+init_dist(args.launcher, **dist_params)
+      File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 16, in init_dist
+_init_dist_pytorch(backend, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 30, in _init_dist_pytorch
+        _init_dist_pytorch(backend, **kwargs)_init_dist_pytorch(backend, **kwargs)
+
+      File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 30, in _init_dist_pytorch
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 30, in _init_dist_pytorch
+    _init_dist_pytorch(backend, **kwargs)dist.init_process_group(backend=backend, **kwargs)
+
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 30, in _init_dist_pytorch
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 547, in init_process_group
+        dist.init_process_group(backend=backend, **kwargs)dist.init_process_group(backend=backend, **kwargs)
+    
+dist.init_process_group(backend=backend, **kwargs)  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 547, in init_process_group
+
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 547, in init_process_group
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 547, in init_process_group
+    _store_based_barrier(rank, store, timeout)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 219, in _store_based_barrier
+            _store_based_barrier(rank, store, timeout)_store_based_barrier(rank, store, timeout)_store_based_barrier(rank, store, timeout)
+
+
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 219, in _store_based_barrier
+      File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 219, in _store_based_barrier
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 219, in _store_based_barrier
+raise RuntimeError(
+RuntimeError: Timed out initializing process group in store based barrier on rank: 0, for key: store_based_barrier_key:1 (world_size=4, worker_count=12, timeout=0:30:00)
+    raise RuntimeError(    
+    raise RuntimeError(raise RuntimeError(
+
+RuntimeError: Timed out initializing process group in store based barrier on rank: 2, for key: store_based_barrier_key:1 (world_size=4, worker_count=12, timeout=0:30:00)
+RuntimeErrorRuntimeError: : Timed out initializing process group in store based barrier on rank: 1, for key: store_based_barrier_key:1 (world_size=4, worker_count=12, timeout=0:30:00)Timed out initializing process group in store based barrier on rank: 3, for key: store_based_barrier_key:1 (world_size=4, worker_count=12, timeout=0:30:00)
+
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 13601) of binary: /storage/daiyalun/anaconda3/envs/gmflow/bin/python
+ERROR:torch.distributed.elastic.agent.server.local_elastic_agent:[default] Worker group failed
+INFO:torch.distributed.elastic.agent.server.api:[default] Worker group FAILED. 1/3 attempts left; will restart worker group
+INFO:torch.distributed.elastic.agent.server.api:[default] Stopping worker group
+INFO:torch.distributed.elastic.agent.server.api:[default] Rendezvous'ing worker group
+INFO:torch.distributed.elastic.agent.server.api:[default] Rendezvous complete for workers. Result:
+  restart_count=3
+  master_addr=127.0.0.1
+  master_port=29500
+  group_rank=0
+  group_world_size=1
+  local_ranks=[0, 1, 2, 3]
+  role_ranks=[0, 1, 2, 3]
+  global_ranks=[0, 1, 2, 3]
+  role_world_sizes=[4, 4, 4, 4]
+  global_world_sizes=[4, 4, 4, 4]
+
+INFO:torch.distributed.elastic.agent.server.api:[default] Starting worker group
+INFO:torch.distributed.elastic.multiprocessing:Setting worker0 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_3/0/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker1 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_3/1/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker2 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_3/2/error.json
+INFO:torch.distributed.elastic.multiprocessing:Setting worker3 reply file to: /tmp/torchelastic_m0kj8li5/none_omp7vuv3/attempt_3/3/error.json
+pytorch version: 1.9.0
+Namespace(attention_type='swin', attn_splits_list=[2], batch_size=16, checkpoint_dir='checkpoints/chairs-gmflow', corr_radius_list=[-1], count_time=False, dir_paired_data=False, distributed=False, eval=False, evaluate_matched_unmatched=False, feature_channels=128, ffn_dim_expansion=4, fwd_bwd_consistency_check=False, gamma=0.9, gpu_ids=0, grad_clip=1.0, image_size=[384, 512], inference_dir=None, inference_size=None, launcher='pytorch', local_rank=0, lr=0.0004, max_flow=400, no_resume_optimizer=False, no_save_flo=False, num_head=1, num_scales=1, num_steps=100000, num_transformer_layers=6, num_workers=4, output_path='output', padding_factor=16, pred_bidir_flow=False, prop_radius_list=[-1], resume=None, save_ckpt_freq=10000, save_eval_to_file=False, save_flo_flow=False, save_latest_ckpt_freq=1000, save_vis_flow=False, seed=326, stage='chairs', strict_resume=False, submission=False, summary_freq=100, upsample_factor=8, val_dataset=['chairs', 'sintel', 'kitti'], val_freq=10000, weight_decay=0.0001, with_speed_metric=True)
+Traceback (most recent call last):
+  File "main.py", line 559, in <module>
+Traceback (most recent call last):
+  File "main.py", line 559, in <module>
+Traceback (most recent call last):
+  File "main.py", line 559, in <module>
+Traceback (most recent call last):
+  File "main.py", line 559, in <module>
+    main(args)
+  File "main.py", line 145, in main
+        main(args)main(args)
+
+  File "main.py", line 145, in main
+  File "main.py", line 145, in main
+    init_dist(args.launcher, **dist_params)
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 16, in init_dist
+    main(args)
+          File "main.py", line 145, in main
+init_dist(args.launcher, **dist_params)init_dist(args.launcher, **dist_params)
+
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 16, in init_dist
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 16, in init_dist
+    _init_dist_pytorch(backend, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 30, in _init_dist_pytorch
+        _init_dist_pytorch(backend, **kwargs)_init_dist_pytorch(backend, **kwargs)
+
+          File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 30, in _init_dist_pytorch
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 30, in _init_dist_pytorch
+init_dist(args.launcher, **dist_params)dist.init_process_group(backend=backend, **kwargs)
+
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 547, in init_process_group
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 16, in init_dist
+        dist.init_process_group(backend=backend, **kwargs)dist.init_process_group(backend=backend, **kwargs)
+
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 547, in init_process_group
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 547, in init_process_group
+    _init_dist_pytorch(backend, **kwargs)
+  File "/storage/daiyalun/gmflow-transformatcher/utils/dist_utils.py", line 30, in _init_dist_pytorch
+    dist.init_process_group(backend=backend, **kwargs)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 547, in init_process_group
+    _store_based_barrier(rank, store, timeout)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 219, in _store_based_barrier
+        _store_based_barrier(rank, store, timeout)_store_based_barrier(rank, store, timeout)
+
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 219, in _store_based_barrier
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 219, in _store_based_barrier
+    raise RuntimeError(
+RuntimeError: Timed out initializing process group in store based barrier on rank: 2, for key: store_based_barrier_key:1 (world_size=4, worker_count=16, timeout=0:30:00)
+            raise RuntimeError(_store_based_barrier(rank, store, timeout)raise RuntimeError(
+
+
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 219, in _store_based_barrier
+RuntimeError: RuntimeErrorTimed out initializing process group in store based barrier on rank: 0, for key: store_based_barrier_key:1 (world_size=4, worker_count=16, timeout=0:30:00): 
+Timed out initializing process group in store based barrier on rank: 3, for key: store_based_barrier_key:1 (world_size=4, worker_count=16, timeout=0:30:00)
+    raise RuntimeError(
+RuntimeError: Timed out initializing process group in store based barrier on rank: 1, for key: store_based_barrier_key:1 (world_size=4, worker_count=16, timeout=0:30:00)
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 14416) of binary: /storage/daiyalun/anaconda3/envs/gmflow/bin/python
+ERROR:torch.distributed.elastic.agent.server.local_elastic_agent:[default] Worker group failed
+INFO:torch.distributed.elastic.agent.server.api:Local worker group finished (FAILED). Waiting 300 seconds for other agents to finish
+/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/elastic/utils/store.py:70: FutureWarning: This is an experimental API and will be changed in future.
+  warnings.warn(
+INFO:torch.distributed.elastic.agent.server.api:Done waiting for other agents. Elapsed: 0.0009839534759521484 seconds
+{"name": "torchelastic.worker.status.FAILED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 0, "group_rank": 0, "worker_id": "14416", "role": "default", "hostname": "sutd-vlg-maurice", "state": "FAILED", "total_run_time": 5465, "rdzv_backend": "static", "raw_error": "{\"message\": \"<NONE>\"}", "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [0], \"role_rank\": [0], \"role_world_size\": [4]}", "agent_restarts": 3}}
+{"name": "torchelastic.worker.status.TERMINATED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 1, "group_rank": 0, "worker_id": "14417", "role": "default", "hostname": "sutd-vlg-maurice", "state": "TERMINATED", "total_run_time": 5465, "rdzv_backend": "static", "raw_error": null, "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [1], \"role_rank\": [1], \"role_world_size\": [4]}", "agent_restarts": 3}}
+{"name": "torchelastic.worker.status.FAILED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 2, "group_rank": 0, "worker_id": "14418", "role": "default", "hostname": "sutd-vlg-maurice", "state": "FAILED", "total_run_time": 5465, "rdzv_backend": "static", "raw_error": "{\"message\": \"<NONE>\"}", "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [2], \"role_rank\": [2], \"role_world_size\": [4]}", "agent_restarts": 3}}
+{"name": "torchelastic.worker.status.FAILED", "source": "WORKER", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": 3, "group_rank": 0, "worker_id": "14419", "role": "default", "hostname": "sutd-vlg-maurice", "state": "FAILED", "total_run_time": 5465, "rdzv_backend": "static", "raw_error": "{\"message\": \"<NONE>\"}", "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\", \"local_rank\": [3], \"role_rank\": [3], \"role_world_size\": [4]}", "agent_restarts": 3}}
+{"name": "torchelastic.worker.status.SUCCEEDED", "source": "AGENT", "timestamp": 0, "metadata": {"run_id": "none", "global_rank": null, "group_rank": 0, "worker_id": null, "role": "default", "hostname": "sutd-vlg-maurice", "state": "SUCCEEDED", "total_run_time": 5465, "rdzv_backend": "static", "raw_error": null, "metadata": "{\"group_world_size\": 1, \"entry_point\": \"python\"}", "agent_restarts": 3}}
+/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py:354: UserWarning: 
+
+**********************************************************************
+               CHILD PROCESS FAILED WITH NO ERROR_FILE                
+**********************************************************************
+CHILD PROCESS FAILED WITH NO ERROR_FILE
+Child process 14416 (local_rank 0) FAILED (exitcode 1)
+Error msg: Process failed with exitcode 1
+Without writing an error file to <N/A>.
+While this DOES NOT affect the correctness of your application,
+no trace information about the error will be available for inspection.
+Consider decorating your top level entrypoint function with
+torch.distributed.elastic.multiprocessing.errors.record. Example:
+
+  from torch.distributed.elastic.multiprocessing.errors import record
+
+  @record
+  def trainer_main(args):
+     # do train
+**********************************************************************
+  warnings.warn(_no_error_file_warning_msg(rank, failure))
+Traceback (most recent call last):
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/launch.py", line 173, in <module>
+    main()
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/launch.py", line 169, in main
+    run(args)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/run.py", line 621, in run
+    elastic_launch(
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 116, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+    return f(*args, **kwargs)
+  File "/storage/daiyalun/anaconda3/envs/gmflow/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 245, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+***************************************
+             main.py FAILED            
+=======================================
+Root Cause:
+[0]:
+  time: 2023-04-09_03:41:37
+  rank: 0 (local_rank: 0)
+  exitcode: 1 (pid: 14416)
+  error_file: <N/A>
+  msg: "Process failed with exitcode 1"
+=======================================
+Other Failures:
+[1]:
+  time: 2023-04-09_03:41:37
+  rank: 2 (local_rank: 2)
+  exitcode: 1 (pid: 14418)
+  error_file: <N/A>
+  msg: "Process failed with exitcode 1"
+[2]:
+  time: 2023-04-09_03:41:37
+  rank: 3 (local_rank: 3)
+  exitcode: 1 (pid: 14419)
+  error_file: <N/A>
+  msg: "Process failed with exitcode 1"
+***************************************
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
